@@ -24,7 +24,11 @@ const auth = getAuth(app)
 connectAuthEmulator(auth, "http://localhost:9099")
 
 export const loginEmailPassword = async (email, password) => {
-
-    const userCredential = await signInWithEmailAndPassword(auth, email, password)
-    console.log(userCredential.user);
+    try{
+        const userCredential = await signInWithEmailAndPassword(auth, email, password)
+        console.log(userCredential);
+    }catch(error){
+        console.log(error)
+    }
+    
 }
